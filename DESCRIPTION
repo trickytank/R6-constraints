@@ -1,5 +1,5 @@
-Package: R6
-Title: Encapsulated Classes with Reference Semantics
+Package: R6constraints
+Title: Encapsulated Classes with Reference Semantics with constraints
 Version: 2.5.1.9000
 Authors@R: c(
     person("Winston", "Chang", , "winston@stdout.org", role = c("aut", "cre")),
