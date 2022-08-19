@@ -10,6 +10,7 @@ generator_funs$get_inherit <- function() {
 # Returns TRUE if this class or one of its ancestor superclasses has private
 # members; FALSE otherwise.
 generator_funs$has_private <- function() {
+  message("--- generator_funs$has_private ---")
   inherit <- get_inherit()
   if (!is.null(private_fields) || !is.null(private_methods))
     TRUE
@@ -23,6 +24,7 @@ generator_funs$has_private <- function() {
 # properly; it needs to be copied, and its parent environment set to the
 # generator object environment.
 generator_funs$set <- function(which = NULL, name = NULL, value, overwrite = FALSE) {
+  message("--- generator_funs$set ---")
   if (lock_class)
     stop("Can't modify a locked R6 class.")
 

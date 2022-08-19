@@ -2,6 +2,7 @@ encapsulate({
   # Search a list for all function objects, change the environment for those
   # functions to a target environment, and return the modified list.
   assign_func_envs <- function(objs, target_env) {
+    message("--- assign_func_envs ---")
     if (is.null(target_env)) return(objs)
 
     lapply(objs, function(x) {
@@ -12,6 +13,7 @@ encapsulate({
 
   # Get names of all superclasses
   get_superclassnames <- function(inherit) {
+    message("--- get_superclassnames ---")
     if (is.null(inherit)) return(NULL)
     c(inherit$classname, get_superclassnames(inherit$get_inherit()))
   }
@@ -26,6 +28,7 @@ encapsulate({
                         size = max(29L, length(x)),
                         empty_to_null = TRUE) {
     if (is.null(envir)) {
+      message("--- list2env2 ---")
       envir <- new.env(hash = hash, parent = parent, size = size)
     }
     if (length(x) == 0) {

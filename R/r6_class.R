@@ -470,6 +470,7 @@ R6Class <- encapsulate(function(classname = NULL, public = list(),
                                 class = TRUE, portable = TRUE,
                                 lock_class = FALSE, cloneable = TRUE,
                                 parent_env = parent.frame()) {
+  message("--- R6Class ---")
 
   if (!all_named(public) || !all_named(private) || !all_named(active))
     stop("All elements of public, private, and active must be named.")

@@ -8,5 +8,6 @@
 #'
 #' @export
 as.list.R6 <- function(x, ...) {
+  message("--- as.list.R6 ---")
   as.list.environment(x, all.names = TRUE)
 }

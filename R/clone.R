@@ -1,6 +1,7 @@
 # This function will be added as a method to R6 objects, with the name 'clone',
 # and with the environment changed.
 generator_funs$clone_method <- function(deep = FALSE) {
+  message("--- generator_funs$clone_method ---")
   # Need to embed these utility functions inside this closure because the
   # environment of this function will change.
 
@@ -30,6 +31,7 @@ generator_funs$clone_method <- function(deep = FALSE) {
                         hash = (length(x) >  100),
                         size = max(29L, length(x)),
                         empty_to_null = TRUE) {
+    message("--- list2env2 ---")
     if (is.null(envir)) {
       envir <- new.env(hash = hash, parent = parent, size = size)
     }
@@ -116,6 +118,7 @@ generator_funs$clone_method <- function(deep = FALSE) {
       enclosing = NULL,
       binding   = NULL
     )
+    message("--- make_first_new_slice ---")
 
     has_private <- !is.null(old_slice$private)
 
@@ -159,6 +162,7 @@ generator_funs$clone_method <- function(deep = FALSE) {
 
   # This creates a slice other than the first one.
   make_new_slice <- function(old_slice, self, private, enclosing_parent) {
+    message("--- make_new_slice ---")
     enclosing <- new.env(enclosing_parent, hash = FALSE)
     binding   <- new.env(emptyenv(), hash = FALSE)
 
@@ -211,6 +215,7 @@ generator_funs$clone_method <- function(deep = FALSE) {
   # Copy members from old to new
   # ---------------------------------------------------------------------------
   copy_slice <- function(old_slice, new_slice, old_new_enclosing_pairs, first_slice = FALSE) {
+    message("--- copy_slice ---")
 
     # Copy the old objects, fix up method environments, and put them into the
     # new binding environment.

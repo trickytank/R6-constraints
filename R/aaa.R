@@ -12,6 +12,7 @@ attr(capsule, "name") <- "R6_capsule"
 
 # This function takes an expression and evaluates it in the capsule environment.
 encapsulate <- function(expr) {
+  message("--- encapsulate ---")
   expr <- substitute(expr)
   eval(expr, capsule)
 }

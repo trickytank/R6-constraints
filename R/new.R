@@ -202,6 +202,7 @@ encapsulate({
   # doing the work for each level and passing the needed information down.
   create_super_env <- function(inherit, public_bind_env, private_bind_env = NULL,
                                portable = TRUE, cloneable = TRUE) {
+    message("--- create_super_env ---")
     public_methods  <- inherit$public_methods
     private_methods <- inherit$private_methods
     active          <- inherit$active
